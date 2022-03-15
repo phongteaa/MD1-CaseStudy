@@ -5,7 +5,7 @@ let ctx = canvas.getContext("2d");
 // Variables
 let paddleWidth = 100;
 let paddleHeight = 20;
-let paddleMarginBottom = 50;
+let paddleMarginBottom = 0;
 let leftArrow = false;
 let rightArrow = false;
 let ballRad = 8;
@@ -89,12 +89,12 @@ function moveBall() {
 function ballWallCollision() {
     if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
         ball.dx = -ball.dx;
-        WALL_HIT.play();
+        //WALL_HIT.play();
     }
 
     if (ball.y - ball.radius < 0) {
         ball.dy = -ball.dy;
-        WALL_HIT.play();
+        //WALL_HIT.play();
 
     }
 
@@ -117,20 +117,18 @@ function resetBall() {
 function ballPaddleCollision() {
     if (ball.x < paddle.x + paddle.width && ball.x > paddle.x && paddle.y < paddle.y + paddle.height && ball.y > paddle.y) {
         PADDLE_HIT.play();
-        // // CHECK WHERE THE BALL HIT THE PADDLE
-        // let collidePoint = ball.x - (paddle.x + paddle.width / 2);
-        //
-        // // NORMALIZE THE VALUES
-        // collidePoint = collidePoint / (paddle.width / 2);
-        //
-        // // CALCULATE THE ANGLE OF THE BALL
-        // let angle = collidePoint * Math.PI / 3;
-        //
-        // ball.dx = ball.speed * Math.sin(angle);
-        // ball.dy = -ball.speed * Math.cos(angle);
+        // CHECK WHERE THE BALL HIT THE PADDLE
+        let collidePoint = ball.x - (paddle.x + paddle.width / 2);
 
-        //ball.dx = -ball.dx;
-        ball.dy = -ball.dy;
+        // NORMALIZE THE VALUES
+        collidePoint = collidePoint / (paddle.width / 2);
+
+        // CALCULATE THE ANGLE OF THE BALL
+        let angle = collidePoint * Math.PI / 3;
+
+        ball.dx = ball.speed * Math.sin(angle);
+        ball.dy = -ball.speed * Math.cos(angle);
+
     }
 }
 
@@ -237,8 +235,8 @@ function levelUp() {
         }
         brick.row++;
         createBricks();
+        ball.speed += 0.5;
         resetBall();
-
         level++;
     }
 }
