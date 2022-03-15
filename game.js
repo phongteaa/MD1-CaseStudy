@@ -134,7 +134,7 @@ function ballPaddleCollision() {
 
 // Create bricks
 const brick = {
-    row: 1,
+    row: 2,
     column: 5,
     width: 55,
     height: 20,
@@ -236,7 +236,8 @@ function levelUp() {
         brick.row++;
         createBricks();
         ball.speed += 2;
-        paddle.dx += 10;
+        paddle.dx += 0.5;
+        paddle.width -= 10;
         resetBall();
         level++;
     }
@@ -272,8 +273,13 @@ function update() {
 //Loop
 function loop() {
     ctx.drawImage(BG_IMG, 0, 0);
+    if (level === 2) {
+        ctx.drawImage(BG_IMG2, 0, 0);
+    }
+
     if (level === 3) {
         ctx.drawImage(BG_IMG3, 0, 0);
+        lv3.play();
     }
 
     draw();
@@ -329,4 +335,5 @@ function showYouLose() {
     gameover.style.display = "block";
     youlose.style.display = "block";
     LoseGame.play();
+    lv3.pause();
 }
