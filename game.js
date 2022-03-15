@@ -1,3 +1,4 @@
+
 // Draw canvas
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
@@ -235,8 +236,7 @@ function levelUp() {
         brick.row++;
         createBricks();
         ball.speed += 0.5;
-        paddle.width -= 40;
-        paddle.dx += 10;
+        paddle.dx += 20;
         resetBall();
         level++;
     }
@@ -321,10 +321,12 @@ restart.addEventListener("click", function () {
 function showYouWin() {
     gameover.style.display = "block";
     youwon.style.display = "block";
+    WinGame.play();
 }
 
 // Lose
 function showYouLose() {
     gameover.style.display = "block";
     youlose.style.display = "block";
+    LoseGame.play();
 }

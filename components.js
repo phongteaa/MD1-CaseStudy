@@ -15,7 +15,14 @@ LIFE_IMG.src = "img/life.png";
 let SCORE_IMG = new Image();
 SCORE_IMG.src = "img/score.png";
 
-// Load Sounds
+// Load Sound
+let LoseGame = new Audio();
+LoseGame.src = "sounds/sad.mp3";
+
+
+let WinGame = new Audio();
+WinGame.src = "sounds/applause.mp3";
+
 let WALL_HIT = new Audio();
 WALL_HIT.src = "sounds/wall.mp3";
 
@@ -26,7 +33,7 @@ let PADDLE_HIT = new Audio();
 PADDLE_HIT.src = "sounds/paddle_hit.mp3";
 
 let WIN = new Audio();
-WIN.src = "sounds/ara.mp3";
+WIN.src = "sounds/tuturu.mp3";
 
 let BRICK_HIT = new Audio();
-BRICK_HIT.src = "sounds/brick_hit.mp3";
+BRICK_HIT.src = "sounds/ara.mp3";
