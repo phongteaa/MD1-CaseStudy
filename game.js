@@ -235,8 +235,8 @@ function levelUp() {
         }
         brick.row++;
         createBricks();
-        ball.speed += 0.5;
-        paddle.dx += 20;
+        ball.speed += 2;
+        paddle.dx += 10;
         resetBall();
         level++;
     }
