@@ -26,7 +26,7 @@ let PADDLE_HIT = new Audio();
 PADDLE_HIT.src = "sounds/paddle_hit.mp3";
 
 let WIN = new Audio();
-WIN.src = "sounds/win.mp3";
+WIN.src = "sounds/ara.mp3";
 
 let BRICK_HIT = new Audio();
 BRICK_HIT.src = "sounds/brick_hit.mp3";
