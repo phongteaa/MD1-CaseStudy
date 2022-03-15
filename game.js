@@ -140,7 +140,7 @@ const brick = {
     offSetLeft: 20,
     offSetTop: 20,
     marginTop: 40,
-    fillColor: "#2e3548",
+    fillColor: "Green",
     strokeColor: "#FFF"
 }
 
