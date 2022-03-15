@@ -35,7 +35,7 @@ let WIN = new Audio();
 WIN.src = "sounds/tuturu.mp3";
 
 let BRICK_HIT = new Audio();
-BRICK_HIT.src = "sounds/ara.mp3";
+BRICK_HIT.src = "sounds/brick_hit.mp3";
 
 let lv3 = new Audio();
 lv3.src = "sounds/nhac.mp3";

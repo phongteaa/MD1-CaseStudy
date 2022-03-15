@@ -1,4 +1,3 @@
-
 // Draw canvas
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
@@ -118,23 +117,26 @@ function resetBall() {
 function ballPaddleCollision() {
     if (ball.x < paddle.x + paddle.width && ball.x > paddle.x && paddle.y < paddle.y + paddle.height && ball.y > paddle.y) {
         PADDLE_HIT.play();
-        // CHECK WHERE THE BALL HIT THE PADDLE
-        let collidePoint = ball.x - (paddle.x + paddle.width / 2);
+        // // CHECK WHERE THE BALL HIT THE PADDLE
+        // let collidePoint = ball.x - (paddle.x + paddle.width / 2);
+        //
+        // // NORMALIZE THE VALUES
+        // collidePoint = collidePoint / (paddle.width / 2);
+        //
+        // // CALCULATE THE ANGLE OF THE BALL
+        // let angle = collidePoint * Math.PI / 3;
+        //
+        // ball.dx = ball.speed * Math.sin(angle);
+        // ball.dy = -ball.speed * Math.cos(angle);
 
-        // NORMALIZE THE VALUES
-        collidePoint = collidePoint / (paddle.width / 2);
-
-        // CALCULATE THE ANGLE OF THE BALL
-        let angle = collidePoint * Math.PI / 3;
-
-        ball.dx = ball.speed * Math.sin(angle);
-        ball.dy = -ball.speed * Math.cos(angle);
+        //ball.dx = -ball.dx;
+        ball.dy = -ball.dy;
     }
 }
 
 // Create bricks
-const brick = {
-    row: 2,
+let brick = {
+    row: 1,
     column: 5,
     width: 55,
     height: 20,
@@ -235,10 +237,8 @@ function levelUp() {
         }
         brick.row++;
         createBricks();
-        ball.speed += 2;
-        paddle.dx += 0.5;
-        paddle.width -= 10;
         resetBall();
+
         level++;
     }
 }
@@ -279,7 +279,7 @@ function loop() {
 
     if (level === 3) {
         ctx.drawImage(BG_IMG3, 0, 0);
-        lv3.play();
+        //lv3.play();
     }
 
     draw();
@@ -328,6 +328,7 @@ function showYouWin() {
     gameover.style.display = "block";
     youwon.style.display = "block";
     WinGame.play();
+    //lv3.pause();
 }
 
 // Lose
@@ -335,5 +336,5 @@ function showYouLose() {
     gameover.style.display = "block";
     youlose.style.display = "block";
     LoseGame.play();
-    lv3.pause();
+    //lv3.pause();
 }
